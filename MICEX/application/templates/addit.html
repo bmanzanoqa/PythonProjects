@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form method = "POST" action=''>
+    {{ form.hidden_tag() }}
+    
+     <br>
+     {% if form.name.errors %}
+        {% for error in form.name.errors %}
+            {{ error }}<br>
+        {% endfor %}
+    {% endif %}
+    
+    <p>Item Name <input type = "text" name = "name" /></p>
+    <p>Age Level <input type = "integer" name = "ageLevel" /></p>
+    <p>Difficulty Level <input type = "integer" name = "difficultyLevel" /></p>
+    <p>Number Of Pieces <input type = "integer" name = "numberOfPieces" /></p>
+    <p>Date Built <input type = "text" name = "dateBuilt" /></p>
+    <p>Photo <input type = "text" name = "photo" /></p>
+    <p>Comments <input type = "text" name = "comments" /></p> 
+    <p>Exhibition ID <input type = "integer" name = "exhid" /></p>   
+    <p><input type = "submit" value = "Add Item" /></p>
+</form>
+
+{% endblock body %}
+
+
+        
+        

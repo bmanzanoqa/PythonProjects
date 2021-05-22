@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form method = "POST" action=''>
+    {{ form.hidden_tag() }}
+    
+    <br>
+    {% if form.name.errors %}
+        {% for error in form.name.errors %}
+            {{ error }}<br>
+        {% endfor %}
+    {% endif %}
+    
+    <p>Exhibition Name <input type = "text" name = "name" /></p>
+    <p>Description <input type = "text" name = "description" /></p>
+    <p>Duration <input type = "integer" name = "exhDuration" /></p>
+    <p>Location <input type = "text" name = "exhLocation" /></p>
+    <p>Date <input type = "text" name = "exhDate" /></p>
+    <p><input type = "submit" value = "Add Exhibition" /></p>
+</form>
+
+{% endblock body %}

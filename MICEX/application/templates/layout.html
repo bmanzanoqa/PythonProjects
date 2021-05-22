@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>Microblocks Exhibitions</title>
+</head>
+
+<body>
+    <h1>Microblocks Exhibitions</h1>
+    <!-- to add html links to all the pages we do this:-->
+    <a href="{{ url_for('home') }}">Home</a>
+    <br>
+    <a href="{{ url_for('addex') }}">Add Exhibition</a>
+    <br>
+    <a href="{{ url_for('addit') }}">Add Item</a>
+    <br>
+    <a href="{{ url_for('updatex', exhibitionsID=1) }}">Update Exhibition</a>
+    <br>
+    <a href="{{ url_for('updatit', itemsID=1) }}">Update Item</a>
+    <br>
+    
+    
+    {% block body %}
+    {% endblock body %}
+</body>
+
+</html>
+
