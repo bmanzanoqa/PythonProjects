@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form method = "POST" action=''>
+    {{ form.hidden_tag() }}
+    
+    <!-- {{ form.name.label }} {{ form.name }} -->
+    <br>
+    
+    <!-- <p>exhibitionsID <input type = "integer" name = "exhibitionsID" /></p> -->
+    <p>Name <input type = "text" name = "name" /></p>
+    <p>Description <input type = "text" name = "description" /></p>
+    <p>Duration <input type = "integer" name = "exhDuration" /></p>
+    <p>Location <input type = "text" name = "exhLocation" /></p>
+    <p>Date <input type = "text" name = "exhDate" /></p>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>
+
+{% endblock body %}

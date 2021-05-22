@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form action='' method='POST'>
+    
+    {{ form.hidden_tag() }}
+    <br>
+    <h1>'Update your Item'</h1>
+
+    <p>Name{{ form.name }} </p>
+    <p>Age Level{{ form.ageLevel }}</p>
+    <p>Difficulty Level{{ form.difficultyLevel }}</p>
+    <p>Number Of Pieces{{ form.numberOfPieces }}</p>
+    <p>Date Built{{ form.dateBuilt }}</p>
+    <p>Photo{{ form.photo }}</p>
+    <p>Comments{{ form.comments }}</p>
+    <p>Exhibition ID{{ form.exhid }}</p>
+    <!-- <p><input type = "submit" value = "Submit" /></p> -->
+    <br>
+    <br>
+    {{ form.submit }}
+</form>
+{% endblock body %}

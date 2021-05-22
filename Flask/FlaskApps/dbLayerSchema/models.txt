@@ -1,0 +1,49 @@
+
+MODEL = a class that describe our tables
+
+CLASS = a group of attributes
+        class Dogs:
+            name = "Bilbo Waggins" ==>> 'name' is an attribute. Every dog will have a name
+            1.  to make an instance or an object of my class:
+                    1. you choose a variable's name
+                    2. =
+                    3. Class' name (Dogs)
+                    4. ()  ==>> in the brackets you put any values you want
+            2. 'dog1.name ==>>> you get Bilbo Waggins
+INHERITANCE 
+    1. When the child class gets the attributes of the parent class
+            class Puppies(Dogs):    ===>>> this means Puppies is a class extended from Dogs, it has access to any attributes from the Dogs class
+
+
+TABLE AS A MODEL in Python
+        1. If I want a 'Customers Table' I will create a 'Customers Class'
+        2. Each column is going to be an attribute
+            1. customerID
+            2. name 
+            3. email
+        3. These (ID, name and email) are all attributes
+        4. To make a customer
+            1. customer1 = Customers(name of the Class(Table) we are creating it for) and in () we put the attributes name, email (ID is auto-generated)
+                1. customer1 = Customers(name = "Ben", email = "ben@b.com")
+            2. To get 'customer1's name' or 'email':
+                1. customer1.name
+                2. customer1.email 
+        5. When creating a Table, we need to inherit the 'MODEL' class from 'db'
+                class Customers(db.Model):
+        6. 'db' is the variable that has everything to do with our DB; it also has this class called MODEL
+
+HOW TO ENTER ATTRIBUTES TO THE TABLE
+    1. we use 'db' and we tell the table this is going to be a column
+            'db.Column'
+    2. now we need to define the column and everything is inside 'db'
+        1. db.Integer ==>> we tell the ID is going to be an Integer
+        2. db.String ===>> we tell the name is going to be a string and how many characters
+        3. 'nullable' = False ====>> we are saying the field cannot be left empty. It HAS to HAVE data, it cannot be null
+        4. 'primary_key = True' ==>> this column contains the primary_key. SQL will auto-increment for you when you define the field as primary_key
+        5. EXAMPLE
+                        class Person(db.Model):
+                        id = db.Column(db.Integer, primary_key=True)
+                        first_name = db.Column(db.String(30), nullable=False)
+                        last_name = db.Column(db.String(30), nullable=False) 
+
+

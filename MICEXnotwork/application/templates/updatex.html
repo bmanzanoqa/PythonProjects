@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form action='' method='POST'>
+    
+    {{ form.hidden_tag() }}
+    <br>
+    <h1>'Update your Exhibition'</h1>
+
+    <p>Name{{ form.name }} </p>
+    <p>Description{{ form.descriptions }}</p>
+    <p>Duration{{ form.exhDuration }}</p>
+    <p>Location{{ form.exhLocation }}</p>
+    <p>Date{{ form.exhDate }}</p>
+    <!-- <p><input type = "submit" value = "Submit" /></p> -->
+    <br>
+    <br>
+    {{ form.submit }}
+</form>
+{% endblock body %}
