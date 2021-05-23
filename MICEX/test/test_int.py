@@ -1,24 +1,20 @@
-from flask_testing import LiveServerTestCase
+from flask_testing import LiveServerTestCase, TestCase
 from selenium import webdriver
 from urllib.request import urlopen
 from flask import url_for
 
-from application import app, db, models
+
+from application import app, db
+from application.models import Exhibitions, Items
 
 class TestBase(LiveServerTestCase):
-    TEST_PORT = 5050 # test port, doesn't need to be open
-
     def create_app(self):
-
-        app.config.update(
-            SQLALCHEMY_DATABASE_URI="",
-            SECRET_KEY="",
-            LIVESERVER_PORT=self.TEST_PORT,
-            
-            DEBUG=True,
-            TESTING=True
-        )
-
+        app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db" 
+        #app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@34.89.84.151:5000/dbmicex.db"
+        app.config["LIVESERVER_PORT"] = 5050
+        app.config["SECRET_KEY"] = "ANYTHING"
+        app.config["TESTING"] = True
+        app.config["DEBUG"] = True
         return app
 
     def setUp(self):
@@ -27,15 +23,26 @@ class TestBase(LiveServerTestCase):
 
         self.driver = webdriver.Chrome(options=chrome_options)
 
-        # db.create_all() # create schema before we try to get the page
+        db.create_all()
 
-        self.driver.get(f'http://localhost:{self.TEST_PORT}')
+        self.driver.get('http://localhost:5050')
 
     def tearDown(self):
         self.driver.quit()
 
-        # db.drop_all()
+        db.drop_all()
 
+  
     def test_server_is_up_and_running(self):
-        response = urlopen(f'http://localhost:{self.TEST_PORT}')
+        response = urlopen('http://localhost:5050')
         self.assertEqual(response.code, 200)
+
+    class TestViews(TestCase):
+
+        def test_navigation(self):
+            self.driver.find_element_by_xpath("/html/body/a[2]").click
+            
+            print(url_for("addex"))
+            print(self.driver.current_url)
+
+            self.assertIn(url_for("addex"), self.driver.current_url)

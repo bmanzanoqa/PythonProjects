@@ -8,8 +8,8 @@ from application.models import Exhibitions, Items
 
 class TestBase(TestCase): 
     def create_app(self):
-        #app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" 
-        app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@34.89.84.151:5000/dbmicex.db"
+        app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" 
+        # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:root@34.89.84.151:5000/dbmicex.db"
         app.config["SECRET_KEY"] = "ANYTHING"
         app.config["WTF_CSRF_ENABLED"] = False
         app.config["DEBUG"] = True
