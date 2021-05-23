@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal finance</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <h1>Add Exhibition</h1>
+    <form method="POST">
+      <div class="form__fieldset">
+        <label for="name" class="form__label">Name:</label>
+        <input type="text" name="name" id="text" class="form__input" />
+      </div>
+      <div class="form__fieldset">
+        <label for="descriptions" class="form__label">Description:</label>
+        <input type="text" name="descriptions" id="text" class="form__input" />
+      </div>
+      <div class="form__fieldset">
+        <label for="exhLocation" class="form__label">Location:</label>
+        <input type="text" name="exhLocation" id="text" class="form__input" />
+      </div>
+      <div class="form__fieldset">
+        <label for="exhDate" class="form__label">Date:</label>
+        <input type="text" name="exhDate" id="text" class="form__input" />
+      </div>
+
+      <div class="form__fieldset">
+        <label for="exhDuration" class="form__label">Duration:</label>
+        <input type="number" name="exhDuration" id="amount" class="form__input" />
+      </div>
+
+      <!-- <div class="form__fieldset">
+        <label for="account" class="form__label">Account:</label>
+        <select name="account" id="account" class="form__input form__select">
+          <option value="Checking">Checking</option>
+          <option value="Savings">Savings</option>
+          <option value="Investment">Investment</option>
+        </select>
+      </div> -->
+
+      <div class="form__fieldset">
+        <input
+          class="form__submit form__input"
+          type="submit"
+          value="Add Exhibition"
+        />
+      </div>
+    </form>
+  </body>
+</html>
